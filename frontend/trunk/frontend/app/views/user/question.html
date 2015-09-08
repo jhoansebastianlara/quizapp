@@ -1,0 +1,36 @@
+<div layout="column" layout-fill>
+    <md-toolbar class="md-medium-tall md-accent md-hue-1">
+        <h2 class="md-toolbar-tools">
+        <span>Por favor selecciona una opción</span>
+      </h2>
+    </md-toolbar>
+    <md-content>
+        <div class="gridListdemoBasicUsage">
+            <md-grid-list md-cols="4" 
+                    md-cols-sm="2" 
+                    md-cols-gt-sm="4" 
+
+                    md-row-height="2:2" 
+
+                    md-gutter-sm="20px" 
+                    md-gutter-gt-sm="30px" 
+                    md-gutter-md="30px" 
+                    md-gutter-gt-md="100px">
+                <md-grid-tile ng-repeat="answer in answers">
+                    <md-button class="md-raised" 
+                            ng-class="{'md-raised md-primary' : answer.selected, 'md-raised' : !answer.selected }" 
+                            style="width: 100%; height: 100%; font-size: 30px" 
+                            ng-click="sendAnswer($index, answer)" 
+                            ng-disabled="answer.disabled">
+                        {{ answer.value }}
+                    </md-button>
+                </md-grid-tile>
+            </md-grid-list>
+        </div>
+    </md-content>
+    <div layout="row" layout-sm="column" layout-align="space-around" ng-show="loading">
+        <md-progress-circular style="margin: 0 auto" class="md-primary" md-mode="indeterminate"></md-progress-circular>                
+    </div>
+</div>
+
+

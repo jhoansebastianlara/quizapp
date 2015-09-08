@@ -1,0 +1,60 @@
+<md-dialog aria-label="Nueva Sala">
+    <form name="newItemForm">
+        <md-dialog-content class="sticky-container">
+            <md-subheader class="md-sticky-no-effect">Nueva Sala</md-subheader>
+            <div>
+                <md-content>
+                    <div layout="row" layout-sm="column" layout-md="column">
+                        <md-input-container flex>
+                            <label>Nombre</label>
+                            <input type="text" 
+                                    name="roomId" 
+                                    id="roomId" 
+                                    ng-model="data.roomId"
+                                    required>
+                            <div ng-messages ng-show="newItemForm.roomId.$invalid && newItemForm.roomId.$dirty">
+                                <div ng-message ng-show="!data.roomId">El nombre es requerido</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>PIN</label>
+                            <input type="text" 
+                                    name="pin" 
+                                    id="pin" 
+                                    ng-model="data.pin"
+                                    required>
+                            <div ng-messages ng-show="newItemForm.pin.$invalid && newItemForm.pin.$dirty">
+                                <div ng-message ng-show="!data.pin">El PIN es requerido</div>
+                            </div>
+                        </md-input-container>
+                        <md-input-container flex>
+                            <label>PIN admin</label>
+                            <input type="text" 
+                                    name="pinAdmin" 
+                                    id="pinAdmin" 
+                                    ng-model="data.pinAdmin"
+                                    required>
+                            <div ng-messages ng-show="newItemForm.pinAdmin.$dirty">
+                                <div ng-message ng-show="!data.pinAdmin">El PIN del admin es requerido</div>
+                                <div ng-message ng-show="data.pin && data.pinAdmin && (data.pin == data.pinAdmin)">Ingresa un PIN diferente</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                <md-content>
+            </div>
+        </md-dialog-content>
+
+        <div class="md-actions" layout="row">
+            <md-button ng-click="cancel()" class="md-primary">
+                Cancelar
+            </md-button>
+            <md-button 
+                    ng-click="create()" 
+                    ng-disabled="newItemForm.$invalid || (data.pin == data.pinAdmin)"
+                    class="md-raised md-primary">
+                Crear
+            </md-button>
+        </div>
+
+    </form>
+</md-dialog>

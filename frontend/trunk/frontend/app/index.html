@@ -1,0 +1,109 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <title></title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic'>
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/nv.d3.css">
+    <link rel="stylesheet" href="styles/stylesLoading.css">
+    <link rel="stylesheet" href="styles/ngAnimate.css">
+    <link rel="stylesheet" href="styles/ng-toasty.css">
+    <!-- endbuild -->
+</head>
+
+<body ng-app="starterApp" layout="column" ng-controller="AppController">
+
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <!-- Botoón termpotal para el acceso fácil a los diferentes módulos -->
+            <!--md-button class="md-raised md-mini md-accent" aria-label="Use Android" ng-click="goToMenu()">
+                <b>Menu</b>
+            </md-button-->
+
+            <b>ACMI</b>
+            <span flex></span>
+            <span>
+                 {{ currentState.name }}
+             </span>
+            <span ng-show="settings.header.showNewButton">
+                <md-button class="md-fab md-mini md-accent" aria-label="Use Android" ng-click="createNewItem($event)">
+                    <b>+</b>
+                </md-button>
+            </span>
+        </div>
+    </md-toolbar>
+    <div ui-view style="height: auto; min-height: calc(100vh - 100px);"></div>
+    <md-toolbar ng-show="userIsJoin" style="background-color: black">
+        <div layout="row" layout-align="center center" flex>
+            <span style="font-size: 18px; margin-right: 5px;">@copyright | Kijho.com</span>
+            <img src="images/logotype.png" style="width:30px;height:30px;">
+        </div>
+    </md-toolbar>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/ng-lodash/build/ng-lodash.js"></script>
+    <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <!-- endbower -->
+    <script src="bower_components/socket.io-client/socket.io.js"></script>
+
+    <!-- External Libs -->
+    <script src="src/libs/d3.v3.min.js" charset="utf-8"></script>
+    <script src="src/libs/nv.d3.js" charset="utf-8"></script>
+    <script src="src/libs/angularjs-nvd3-directives.js" charset="utf-8"></script>
+
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+    <!-- /scripts/app/ -->
+    <script src="scripts/app/app.js"></script>
+    <script src="scripts/app/constants/AppConstants.js"></script>
+    <script src="scripts/app/utilities/AppUtilities.js"></script>
+
+    <script src="scripts/app/controllers/AppController.js"></script>
+    <script src="scripts/app/controllers/InfoController.js"></script>
+    <script src="scripts/app/controllers/ChartsController.js"></script>
+
+    <script src="scripts/app/services/AppService.js"></script>
+    <script src="scripts/app/services/SocketService.js"></script>
+
+    <!-- /scripts/organizer/ -->
+    <script src="scripts/organizer/controllers/RoomController.js"></script>
+
+    <!-- /scripts/admin/ -->
+    <script src="scripts/admin/controllers/ControlPanelController.js"></script>
+    <script src="scripts/admin/controllers/MonitorActivityController.js"></script>
+    <script src="scripts/admin/controllers/MenuConsole.js"></script>
+
+    <!-- /scripts/user/ -->
+    <script src="scripts/user/controllers/LoginController.js"></script>
+    <script src="scripts/user/controllers/QuestionController.js"></script>
+
+    <!-- /scripts/directives/ -->
+    <script src="scripts/app/directives/AppDirective.js"></script>
+
+
+    <!-- endbuild -->
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<div layout="row" layout-fill style="padding-bottom: 32px;">
+	<div flex="20" flex-sm="10" flex-md="20" flex-lg="30" flex-gt-lg="35">
+	
+	</div>
+	<div layout="row" layout-align="center" flex="60" flex-sm="80" flex-md="60" flex-lg="40" flex-gt-lg="30">
+		<form name="loginForm">
+			<md-content style="width: 100%; margin-top: 40px">				
+				<div  flex layout="row" layout-align="center center" layout-margin class="box" style="border-bottom: 1px solid #f0f0f0">
+			        <h1 class="md-title" style="text-align: justify">BIENVENIDO</h1>
+			    </div>
+				<div  flex layout="row" layout-align="center center" layout-margin class="box">
+			        <h3 class="md-title" style="text-align: justify">IX SIMPOSIO REGIONAL EJE CAFETERO 2015 - ACMI CAPÍTULO QUINDÍO</h3>
+			    </div>
+				<div layout="row" layout-sm="column" layout-md="column">
+					<md-input-container flex>
+						<label>Ingrese el PIN de la sala</label>
+						<input type="password" 
+							name="pin" 
+							ng-model="data.pin"
+							maxlength="10"
+							required>
+						<div ng-messages ng-show="loginForm.pin.$invalid && loginForm.pin.$dirty">
+							<div ng-message ng-show="!data.pin">El PIN de la sala es requerido</div>
+						</div>
+					</md-input-container>
+					<md-input-container flex ng-show="!loading">
+						<md-button 
+							class="md-raised md-primary" 
+							style="height:50px;" 
+							ng-click="joinToRoom(data, true)"
+							ng-disabled="loginForm.$invalid">
+								Ingresar
+						</md-button>
+					</md-input-container>
+					<div layout="row" layout-sm="column" layout-align="space-around" ng-show="loading">
+						<md-progress-circular style="margin: 0 auto" class="md-primary" md-mode="indeterminate"></md-progress-circular>			    
+				    </div>
+				</div>
+			</md-content>
+		</form>
+	</div>
+</div>

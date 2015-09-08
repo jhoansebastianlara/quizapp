@@ -1,0 +1,26 @@
+<div layout="row" layout-fill style="padding-bottom: 32px;" ng-init="init()">
+	<div flex="20" flex-sm="10" flex-md="20" flex-lg="30" flex-gt-lg="35">
+	
+	</div>
+	<div layout="row" layout-align="center" flex="60" flex-sm="80" flex-md="60" flex-lg="40" flex-gt-lg="30">
+		
+		<div style="width: 100%;">
+          <md-content >
+            <md-list >      
+                  <md-list-item class="md-3-line" ng-repeat="room in rooms">
+                    <div class="md-list-item-text">
+                      <h3>{{ room.roomId }}</h3>
+                      <p>{{ lodash.size(room.users) }} usuarios</p>
+                      <p>{{ room.status }}</p>
+                    </div>
+                  </md-list-item>
+                </md-list>
+            
+          </md-content>
+        </div>
+
+	</div>
+	<div flex="20" flex-sm="10" flex-md="20" flex-md="30" flex-gt-lg="35">
+	
+	</div>
+</div>

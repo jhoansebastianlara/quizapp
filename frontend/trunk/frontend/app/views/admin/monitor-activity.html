@@ -1,0 +1,52 @@
+<div layout="row">
+    <div layout="column" flex="40" layout-align="center start">
+        <h2 style="margin-left: 10px;"># respuestas: {{ amountAnswers }}</h2>
+    </div>
+    <!-- <div layout="column" flex="50" layout-align="center end">
+        <h2 style="margin-right: 10px;">{{ minsLbl }}{{ dotsLbl }}{{ secsLbl }}</h2>
+    </div> -->
+</div>
+<div layout="row" layout-align="center center">
+    <div layout="column" flex="30" flex-sm="100" flex-md="70" flex-gt-md="50" flex-lg="45" flex-gt-lg="35">
+        <div style="height: 100%;">
+            <nvd3-discrete-bar-chart data="answersSummary" id="exampleId" width="400" height="400" tooltips="false" showXAxis="true" showYAxis="false" showValues="false">
+                <svg style="margin-top: -40px;">
+                </svg>
+            </nvd3-discrete-bar-chart>
+
+            <div layout="row" layout-align="center center" style="margin-top: -10px;">
+                <div layout="column" flex="30" flex-sm="30" flex-gt-md="50">
+                    <md-button style="height:50px;" class="md-raised" ng-click="showConfirmPanel($event, 1)">PANEL</md-button>
+                </div>
+                <div layout="column" flex="30" flex-sm="30" flex-gt-md="50">
+                    <md-button 
+                        ng-class="{'md-raised md-warn' : runningQuestion, 'md-raised md-accent' : !runningQuestion }" 
+                        style="height:50px; color: #fff;" 
+                        ng-click="continueStopQuestion()">
+                        <span ng-show="runningQuestion">DETENER</span>
+                        <span ng-show="!runningQuestion">CONTINUAR</span>
+                    </md-button>
+                </div>
+                <div layout="column" flex="30" flex-sm="30" flex-gt-md="50">
+                    <md-button style="height:50px;" class="md-raised md-primary" ng-click="showConfirmPanel($event, 2)">NUEVA</md-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style type="text/css">
+    a.md-button.md-default-theme.md-accent.md-raised,
+    a.md-button.md-default-theme.md-accent.md-fab,
+    .md-button.md-default-theme.md-accent.md-raised,
+    .md-button.md-default-theme.md-accent.md-fab {
+        background-color: #12B860;
+    }
+    
+    a.md-button.md-default-theme.md-accent.md-raised:not([disabled]):hover,
+    a.md-button.md-default-theme.md-accent.md-fab:not([disabled]):hover,
+    .md-button.md-default-theme.md-accent.md-raised:not([disabled]):hover,
+    .md-button.md-default-theme.md-accent.md-fab:not([disabled]):hover {
+        background-color: #12B860;
+    }
+</style>
